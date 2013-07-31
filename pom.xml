@@ -66,6 +66,8 @@
 
 		<mysql.version>5.1.22</mysql.version>
 
+                <liquibase.version>3.0.2</liquibase.version>
+
 	</properties>
 
 	<dependencies>
@@ -219,6 +221,12 @@
 
 		<!-- For MySql only -->
 		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> <version>${mysql.version}</version> </dependency> -->
+
+                <dependency>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-core</artifactId>
+                        <version>${liquibase.version}</version>
+                </dependency>
 		<!-- HIBERNATE -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

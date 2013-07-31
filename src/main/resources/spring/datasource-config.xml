@@ -25,6 +25,12 @@
     <!-- DataSource configuration for the tomcat jdbc connection pool 
     See here for more details on commons-dbcp versus tomcat-jdbc: 
     http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/-->
+    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+      <property name="dataSource" ref="dataSource" />
+      <property name="changeLog" value="classpath:db/liquibase/db-changelog.xml" />
+      <property name="contexts" value="production" />
+    </bean>
+
     <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
           p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}"
           p:username="${jdbc.username}" p:password="${jdbc.password}"/>
@@ -40,4 +46,5 @@
         <!-- JNDI DataSource for JEE environments -->
         <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/petclinic"/>
     </beans>
+
 </beans>
